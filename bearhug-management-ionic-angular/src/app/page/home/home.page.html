@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-logo slot="start"/>
+    <ion-title>Bearhug Management</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <header>
+    <h1>Bienvenido a BEARHUG el mejor gestor de almacenes en la nube</h1>
+    <p>¿Estás cansado de perder información importante debido a fallos en tus dispositivos o sistemas locales? ¡No te
+      preocupes más! Nuestra aplicación de Gestión de Almacenes en la Nube está aquí para ayudarte.</p>
+    <div>
+      <ion-button routerLink="/auth/sign-up" size="small" class="custom-btn shadow-btn">Registrate ahora</ion-button>
+      <ion-button routerLink="/auth/log-in" size="small" class="custom-btn outside-btn primary-outside-btn">Inicia sesión</ion-button>
+    </div>
+    <figure>
+      <img alt="hero-image" src="{{imageUrl}}"/>
+    </figure>
+  </header>
+  <section>
+    <h2>¿Por qué elegir nuestro Gestor de Almacenes en la Nube?</h2>
+    <p>Si aun no estas convencido, te mostramos los beneficios que obtendria tu negocio si te decides por nosotros</p>
+    <article>
+      @for (feature of features; track feature.id) {
+        <ion-card>
+          <header class="ion-card-header">
+            <ion-icon color="dark" size="small" name="{{feature.icon}}"></ion-icon>
+            <h6 slot="start">{{ feature.title }}</h6>
+          </header>
+          <ion-card-content>
+            <p>{{ feature.description }}</p>
+          </ion-card-content>
+        </ion-card>
+      }
+    </article>
+  </section>
+  <section>
+    <h2>Conoce los planes que tenemos para ti</h2>
+    <p>Empieza ya y decide el plan que mejor le convenga a tu negocio</p>
+    <article>
+      @for (plan of plans; track crypto.randomUUID()) {
+        <app-card-pricing [isPopular]="plan.isPopular" [features]="plan.features" [price]="plan.price"
+                          [title]="plan.title"/>
+      }
+    </article>
+  </section>
+  <section>
+    <h2>Conoce los planes que tenemos para ti</h2>
+    <p>Empieza ya y decide el plan que mejor le convenga a tu negocio</p>
+    <article>
+      @for (profile of profiles; track crypto.randomUUID()) {
+        <app-profile-card [biography]="profile.biography" [name]="profile.name"
+                          [photo]="profile.photo" [rol]="profile.rol"/>
+      }
+    </article>
+  </section>
+  <app-footer/>
+</ion-content>

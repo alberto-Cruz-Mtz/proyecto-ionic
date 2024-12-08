@@ -1,0 +1,40 @@
+h6{
+  font-weight: bold;
+  text-align: center;
+}
+
+article {
+  margin: 2rem auto 0;
+  width: 90%;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  text-align: center;
+}
+
+blockquote{
+  display: grid;
+  animation: fadeIn 0.8s ease-in-out;
+
+  div {
+    display: flex;
+    gap: 1rem;
+    margin-top: 10px;
+  }
+}
+
+ion-label {
+  font-weight: bold;
+
+  span {
+    font-weight: normal;
+  }
+}
+
+ion-footer{
+  display: flex;
+  align-items: center;
+  padding: 10px 1rem;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  background: #1616167c;
+}

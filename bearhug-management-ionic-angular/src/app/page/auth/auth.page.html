@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <h1>{{ title }}</h1>
+  <form class="custom-form" [formGroup]="authForm" (ngSubmit)="typeAuth === 'sign-up'? handleSignUp() : handleLogin()">
+    <ion-input class="custom-input" id="email" formControlName="email" type="email" labelPlacement="stacked" label="Email"
+               placeholder="email@domain.com">
+      <ion-icon slot="start" aria-hidden="true" name="mail-outline"></ion-icon>
+    </ion-input>
+    <ion-note color="danger" *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched">
+      Por favor, ingresa un correo válido.
+    </ion-note>
+    <ion-input class="custom-input" id="password" formControlName="password" [type]="inputType" labelPlacement="stacked" label="Email"
+               placeholder="Ingresa tu contraseña">
+      <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true"></ion-icon>
+      <ion-button (click)="showPassword()" fill="clear" slot="end" aria-label="Show/hide">
+        <ion-icon slot="icon-only" [name]="inputIcon" aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-input>
+    <ion-note color="danger" *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched">
+      Contraseña no valida
+    </ion-note>
+    <ion-button id="open-modal" type="submit" [disabled]="authForm.invalid" class="custom-btn shadow-btn">
+      {{typeAuth === 'sign-up'? 'Registrar': 'Iniciar sesión'}}
+    </ion-button>
+  </form>
+  <ion-modal trigger="open-modal" #modal>
+    <ng-template>
+      <ion-content>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button (click)="modal.dismiss()">
+                <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-icon
+          size="large"
+          [color]="error ? 'danger' : 'success'"
+          [name]="error ? 'warning-outline': 'checkmark-circle-outline'"/>
+        <p>{{ modalMessage }}</p>
+        @if (!error) {
+          <ion-button class="custom-btn shadow-btn">Ir al dashboard</ion-button>
+        }
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+<ion-footer>
+  <ion-button slot="start" routerLink="/" class="icon-btn outside-btn primary-outside-btn">
+    <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+  </ion-button>
+  <ion-label>Regresar</ion-label>
+</ion-footer>

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  <ng-container *ngFor="let data of dataProduct; trackBy: trackByFn">
+    <article>
+      <header>
+        <h6>{{data.description}}</h6>
+      </header>
+      <blockquote>
+        <ion-label>Código: <span>{{data.code}}</span></ion-label>
+        <ion-label>Tipo de Venta: <span>{{data.sale}}</span></ion-label>
+        <ion-label>Precio de Costo: <span>{{data.purchasePrice}}</span></ion-label>
+        <ion-label>Precio de Venta: <span>{{data.salesprice}}</span></ion-label>
+        <ion-label>Precio Mayoreo: <span>{{data.mayoreo}}</span></ion-label>
+        <ion-label>Categoría: <span>{{data.category}}</span></ion-label>
+        <ion-label>Existencias: <span>{{data.quantity}}</span></ion-label>
+        <div>
+          <ion-button (click)="enviarObjeto(data)" class="custom-btn shadow-btn">Modificar</ion-button>
+          <ion-button routerLink="/dashboard/delete" class="custom-btn danger-outside-btn outside-btn">Eliminar</ion-button>
+        </div>
+      </blockquote>
+    </article>
+  </ng-container>
+</ion-content>
+<ion-footer>
+  <ion-button routerLink="/dashboard" class="icon-btn primary-outside-btn outside-btn" slot="start">
+    <ion-icon slot="icon-only" color="primary" name="arrow-back-circle-outline"></ion-icon>
+  </ion-button>
+  <ion-label>volver</ion-label>
+  <ion-button class="icon-btn primary-outside-btn outside-btn">
+    <ion-icon slot="icon-only" name="refresh-circle-outline"></ion-icon>
+  </ion-button>
+</ion-footer>

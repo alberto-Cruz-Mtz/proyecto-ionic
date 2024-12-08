@@ -1,0 +1,7 @@
+{
+  "name": "bearhug-management-ionic-angular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

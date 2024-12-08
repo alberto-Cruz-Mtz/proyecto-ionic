@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-buttons>
+    <ion-button routerLink="/dashboard/search" color="primary">Buscar Producto</ion-button>
+    <ion-button routerLink="/dashboard/all" color="primary">Ver todos los productos</ion-button>
+    <ion-button routerLink="/dashboard/add" color="primary">Agregar producto</ion-button>
+    <ion-button routerLink="/dashboard/delete" color="primary">Eliminar producto</ion-button>
+    <ion-button routerLink="/dashboard/update" color="primary">Modificar producto</ion-button>
+  </ion-buttons>
+</ion-content>
+<ion-footer>
+  <ion-button class="icon-btn danger-outside-btn outside-btn" slot="start">
+    <ion-icon slot="icon-only" color="danger" name="log-out-outline"></ion-icon>
+  </ion-button>
+  <ion-label>Cerrar sesión</ion-label>
+</ion-footer>

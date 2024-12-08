@@ -1,0 +1,32 @@
+article {
+  margin: 0 auto;
+  width: 80%;
+}
+
+figure {
+  display: grid;
+  place-items: center;
+}
+
+figure img {
+  width: 80%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+div{
+  text-align: center;
+}
+
+ul {
+  width: 90%;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 8px;
+}
+
+h6 {
+  font-weight: bold;
+}

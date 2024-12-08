@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-footer{
+  display: flex;
+  align-items: center;
+  padding: 10px 1rem;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  background: #1616167c;
+}

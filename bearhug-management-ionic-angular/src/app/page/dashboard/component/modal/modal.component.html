@@ -1,0 +1,7 @@
+<dialog [open]="isOpen">
+  <ng-container *ngIf="!!message">
+    <p>{{message}}</p>
+  </ng-container>
+  <ng-content></ng-content>
+  <ion-button (click)="closeModal()" class="custom-btn outside-btn primary-outside-btn">Cerrar</ion-button>
+</dialog>

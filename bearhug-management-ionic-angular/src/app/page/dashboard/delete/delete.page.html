@@ -1,0 +1,22 @@
+<app-header/>
+
+<ion-content [fullscreen]="true">
+  <h1>Eliminación de Productos</h1>
+  <form class="custom-form" [formGroup]="deleteForm" (ngSubmit)="handleSubmit()">
+    <ion-input required class="custom-input" id="code" formControlName="code" type="text" labelPlacement="stacked"
+               label="Código" placeholder="Código del producto">
+      <ion-icon slot="start" aria-hidden="true" name="barcode-outline"></ion-icon>
+    </ion-input>
+    <ion-button type="submit" [disabled]="deleteForm.invalid" class="custom-btn shadow-btn">
+      <ion-icon slot="start" name="search-circle-outline"></ion-icon>
+      buscar
+    </ion-button>
+  </form>
+  <app-modal [(isOpen)]="isOpen" [message]="message"></app-modal>
+</ion-content>
+<ion-footer>
+  <ion-button routerLink="/dashboard" class="icon-btn primary-outside-btn outside-btn" slot="start">
+    <ion-icon slot="icon-only" color="primary" name="arrow-back-circle-outline"></ion-icon>
+  </ion-button>
+  <ion-label>volver</ion-label>
+</ion-footer>

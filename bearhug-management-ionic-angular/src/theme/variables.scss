@@ -1,0 +1,11 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+:root {
+  --ion-item-border-color: var(--ion-background-color-step-200);
+}
+
+.ion-palette-dark.ios,
+.ion-palette-dark.md {
+  --ion-item-background: #1c1c1d;
+}

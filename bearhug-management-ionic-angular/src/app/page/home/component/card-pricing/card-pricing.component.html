@@ -1,0 +1,22 @@
+<ion-card>
+  @if (isPopular) {
+    <span class="popular">POPULAR</span>
+  }
+  <ion-card-header>
+    <span class="title">{{ title }}</span>
+    <h5>
+      {{ price }}
+      <span>/mensual</span>
+    </h5>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      @for (feature of features; track (20 + Math.random() * 40)) {
+        <ion-item>
+          <ion-icon color="success" slot="start" name="checkmark-circle-outline"></ion-icon>
+          {{ feature }}
+        </ion-item>
+      }
+    </ion-list>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,54 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  <h1>Agrega tu producto</h1>
+  <form [formGroup]="productForm" (ngSubmit)="handleSubmit()" class="custom-form">
+    <ion-input required class="custom-input" id="code" formControlName="code" type="text" labelPlacement="stacked" label="Código"
+               placeholder="Código de producto">
+      <ion-icon slot="start" aria-hidden="true" name="barcode-outline"></ion-icon>
+    </ion-input>
+    <ion-input required class="custom-input" id="description" formControlName="description" type="text" labelPlacement="stacked"
+               label="Nombre" placeholder="nombre del producto">
+      <ion-icon slot="start" aria-hidden="true" name="link-outline"></ion-icon>
+    </ion-input>
+    <ion-radio-group required formControlName="type" id="type">
+      <p>Tipo de venta</p>
+      <ion-radio value="por pieza">Por pieza</ion-radio>
+      <ion-radio value="a granel">A granel</ion-radio>
+      <ion-radio value="por paquete">Por paquete(kit)</ion-radio>
+    </ion-radio-group>
+    <ion-input required min="0" class="custom-input" id="costo" formControlName="costo" type="number" labelPlacement="stacked"
+               label="Costo" placeholder="costo del producto">
+      <ion-icon slot="start" aria-hidden="true" name="cash-outline"></ion-icon>
+    </ion-input>
+    <ion-input required min="0" class="custom-input" id="venta" formControlName="venta" type="number" labelPlacement="stacked"
+               label="Venta" placeholder="Precio de venta">
+      <ion-icon slot="start" aria-hidden="true" name="cart-outline"></ion-icon>
+    </ion-input>
+    <ion-input min="0" class="custom-input" id="mayoreo" formControlName="mayoreo" type="number"
+               labelPlacement="stacked" label="Mayoreo" placeholder="Precio de mayoreo">
+      <ion-icon slot="start" aria-hidden="true" name="cart-outline"></ion-icon>
+    </ion-input>
+    <ion-select id="category" formControlName="category" aria-label="Categoria" placeholder="Categoria de producto">
+      <ion-select-option value="sabritas">Sabritas</ion-select-option>
+      <ion-select-option value="licores">Licores</ion-select-option>
+      <ion-select-option value="detergentes">Detergentes</ion-select-option>
+      <ion-select-option value="otros">Otros</ion-select-option>
+    </ion-select>
+    <ion-input required min="0" class="custom-input" id="existencia" formControlName="existencia" type="number"
+               labelPlacement="stacked" label="Existencias" placeholder="Existencias del producto">
+      <ion-icon slot="start" aria-hidden="true" name="bookmark-outline"></ion-icon>
+    </ion-input>
+
+    <ion-button type="submit" [disabled]="productForm.invalid" class="custom-btn shadow-btn">
+      <ion-icon slot="start" name="save-outline"></ion-icon>
+      Guardar
+    </ion-button>
+  </form>
+  <app-modal [(isOpen)]="isOpen" [message]="message"></app-modal>
+</ion-content>
+<ion-footer>
+  <ion-button routerLink="/dashboard" class="icon-btn primary-outside-btn outside-btn" slot="start">
+    <ion-icon slot="icon-only" color="primary" name="arrow-back-circle-outline"></ion-icon>
+  </ion-button>
+  <ion-label>volver</ion-label>
+</ion-footer>
